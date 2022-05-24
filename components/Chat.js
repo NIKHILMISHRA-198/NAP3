@@ -17,7 +17,7 @@ class Chat extends Component {
   componentDidMount() {
     this.pusher = new Pusher(process.env.PUSHER_APP_KEY, {
       cluster: process.env.PUSHER_APP_CLUSTER,
-      encrypted: true
+      encrypted: true,
     });
 
     this.channel = this.pusher.subscribe("chat-room");
@@ -37,7 +37,7 @@ class Chat extends Component {
     */
 
     this.pusher.connection.bind("connected", () => {
-      axios.post("/messages").then(response => {
+      axios.post("/messages").then((response) => {
         const chats = response.data.messages;
         this.setState({ chats });
       });
@@ -48,7 +48,7 @@ class Chat extends Component {
     this.pusher.disconnect();
   }
 
-  handleKeyUp = evt => {
+  handleKeyUp = (evt) => {
     const value = evt.target.value;
 
     if (evt.keyCode === 13 && !evt.shiftKey) {
