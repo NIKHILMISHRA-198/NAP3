@@ -73,8 +73,8 @@ class Chat extends Component {
             </h2>
           </div>
 
-          {/* The meat and potatoes section, 
-              Here I look through each object in the cats array and check who the sender is to set positions
+          {/* 
+              look through each object in the cats array and check who the sender is to set positions
               Then, we use the sentiment score to select the correct emoji
           */}
           <div

@@ -20,7 +20,7 @@ const pusher = new Pusher({
   key: process.env.PUSHER_APP_KEY,
   secret: process.env.PUSHER_APP_SECRET,
   cluster: process.env.PUSHER_APP_CLUSTER,
-  encrypted: true
+  encrypted: true,
 });
 
 app
@@ -53,12 +53,12 @@ app
       res.json({ ...chatHistory, status: "success" });
     });
 
-    server.listen(port, err => {
+    server.listen(port, (err) => {
       if (err) throw err;
       console.log(`> Ready on http://localhost:${port}`);
     });
   })
-  .catch(ex => {
+  .catch((ex) => {
     console.error(ex.stack);
     process.exit(1);
   });
